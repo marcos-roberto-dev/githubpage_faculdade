@@ -1,0 +1,7 @@
+@import "bootstrap";
+
+[data-bs-theme="dark"] {
+  body {
+    background-color: var(--bs-red-800);
+  }
+}
