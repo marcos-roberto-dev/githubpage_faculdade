@@ -1,0 +1,50 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+@mixin generate-class-by-color($colors) {
+  @each $name, $color in $colors {
+    .bg-#{$name} {
+      background: $color !important;
+    }
+    .text-#{$name} {
+      color: $color !important;
+    }
+  }
+}
+
+@mixin generate-variables-by-color($colors) {
+  :root {
+    @each $name, $color in $colors {
+      --bs-#{$name}: #{$color};
+    }
+  }
+}
+
+// Cria um mapa de cores cinza
+$grays-color: (
+  "gray-100": $gray-100,
+  "gray-200": $gray-200,
+  "gray-300": $gray-300,
+  "gray-400": $gray-400,
+  "gray-500": $gray-500,
+  "gray-600": $gray-600,
+  "gray-700": $gray-700,
+  "gray-800": $gray-800,
+  "gray-900": $gray-900,
+);
+
+$all-colors: map-merge-multiple(
+  $grays-color,
+  $blues,
+  $indigos,
+  $purples,
+  $pinks,
+  $reds,
+  $oranges,
+  $yellows,
+  $greens,
+  $teals,
+  $cyans
+);
+
+@include generate-class-by-color($all-colors);
+@include generate-variables-by-color($all-colors);
